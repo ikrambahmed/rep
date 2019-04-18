@@ -1,0 +1,91 @@
+<app-card  [title]="'إضافة '" [classHeader]="true" [blockClass]="'table-border-style'">
+
+<div class="container"  >
+
+    <div class="card">
+    
+        <div class="card-body">
+            <h5 class="mb-0 text-center"> <span class="badge badge-secondary">{{y}}</span>
+            </h5>
+          <form [formGroup]="BudgetDeptForm" #f="ngForm">
+            <div class="row">
+                <div class="form-group col-md-6 text-right">
+                    <label >المرجع </label>
+                    <input type="text" class="form-control" formControlName="reference_mis"      
+                   > 
+                </div>
+              <div class="form-group col-md-6 text-right">
+                  <label > اعتمادات المامورية </label>
+                  <input type="text" class="form-control" formControlName="valeur_miss" >
+                  <input type="date" class="form-control" formControlName="date_budg" [(ngModel)]="dataSys" hidden >
+                  <input type="text" class="form-control" formControlName="code" [(ngModel)]="cod" hidden >
+              </div>
+           
+</div>
+<div class="row">
+    <div class="form-group col-md-6 text-right">
+        <label >المرجع </label>
+        <input type="text" class="form-control" formControlName="reference_tr"> 
+    </div>
+    <div class="form-group col-md-6 text-right">
+        <label > اعتمادات النقل </label>
+        <input type="text" class="form-control" formControlName="valeur_tr">
+    </div>
+  
+</div>
+<div class="row " dir="rtl" lang="ar">
+  <div class="col-md-12  text-right">
+    <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>اعتمادات المامورية </th>
+            <th>المرجع</th>
+            <th>اعتمادات النقل</th>
+            <th>المرجع</th>
+            <th>تاريخ المصادقة</th>
+            <th>
+              <button class="btn btn-outline-primary" (click)="operation ='ADD' ;initMiss() ;">اظافة</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let budget of budgets">
+            <td> {{budget.valeur_miss}}</td>
+            <td>{{budget.reference_mis}}</td>
+            <td> {{budget.valeur_tr}}</td>
+            <td>{{budget.reference_tr}}</td>
+            <td>{{budget.date_budg | date:'yyyy-MM-dd'}}</td>
+            <td>
+              <button class="btn btn-outline-primary"
+                (click)="editOp() ;  selectedMissionnaire = missionnaire">تغيير</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+<div class="row">
+<div class="col-md-6  text-right">
+<label> مجموع </label>
+
+<label>  مجموع اعتمادات المامورية </label>
+
+
+</div>
+<div class="col-md-6  text-right">
+    <label> مجموع </label>
+
+<label>  مجموع اعتمادات  النقل </label>
+
+</div>
+</div>
+<div>
+    <button class="btn btn-success" (click)="add()">
+      إدخال  
+    </button>
+  </div>
+</form>
+</div>
+</div>
+</div>
+</app-card>

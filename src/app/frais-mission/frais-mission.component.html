@@ -1,0 +1,224 @@
+<app-card  [title]="'إضافة الاعتمادات للمأمورية'" [classHeader]="true" [blockClass]="'table-border-style'">
+    <div class="container">
+
+        <div class="card-body ">
+          <form [formGroup]="OrdMissForm" #f="ngForm">
+           <div class="row " dir="rtl">
+            <div class="form-group col-md-12 text-center">
+               <h4 > المامورية رقم <span class = "label label-default">{{cod}}/{{numMission}}/{{num_ord}} </span></h4>
+       </div>
+       <input type="text" formControlName="numMission" hidden [(ngModel)]="codeMission">
+       <input type="text" formControlName="numord" hidden [(ngModel)]="num_ord" >
+       <input type="text" formControlName="cin" hidden [(ngModel)]="username">
+       <input type="text" formControlName="code" hidden [(ngModel)]="cod">
+
+           </div>
+            <div class="row">
+                <div class="form-group col-md-3 text-right">
+                    <label>المدة
+                    </label>
+                    <input type="textbox" class="form-control" >
+                  </div>    
+                <div class="form-group col-md-3 text-right">
+                    <label>وسيلة النقل
+                    </label>
+                    <select class="form-control form-control-lg">
+                      <option selected>اختار وسيلة نقل</option>
+                      <option value="1">الحافلة</option>
+                      <option value="2">القطار</option>
+                      <option value="3">الباخرة</option>
+                      <option value="3">الطائرة</option>
+
+                    </select>
+                  </div>
+              
+              <div class="form-group col-md-3 text-right">
+                <label>المدينة
+                </label>
+                <input type="textbox" class="form-control" formControlName="NVille" required [(ngModel)]="ville">
+              </div>
+              <div class="form-group col-md-3 text-right">
+                  <label>البلد
+                  </label>
+  
+                  <select class="form-control form-control-lg" id="select" formControlName="codPays">
+                    <option [ngValue]="codPays">1</option>
+                  </select>
+                </div>
+            </div>
+          <!-- <div class="row ">
+                <div class="form-group col-md-12 text-right">
+
+                <div id="table" class="table-editable">
+                  <table class="table table-bordered table-responsive-md table-striped text-center">
+                    <tr>             
+                        <th class="text-center">المجموع</th>    
+                        <th class="text-center">مصاريف التنقل</th>
+                      <th class="text-center">مصاريف المامورية</th>
+                      <th class="text-center">الاعتمادات</th>
+                    </tr>
+                    <tr>
+                      <td class="pt-3-half" contenteditable="false">{{val_budget}}</td>
+                      <td class="pt-3-half" contenteditable="true">{{budget_mission.valeur_tr}}</td>
+                      <td class="pt-3-half" contenteditable="true">{{budget_mission.valeur_miss}}</td>
+                      <td class="pt-3-half" contenteditable="false">{{val_budget}}</td>
+                    </tr>
+                   
+                  </table>
+                </div>
+              </div>
+            </div>--> 
+            <div class="row" dir="rtl">
+                <div class="form-group col-md-4 text-right">
+                 <h4><label>مصاريف المامورية</label></h4> 
+                </div>
+               
+            </div>
+            <div class="row" dir="rtl">
+                <div class="form-group col-md-4 text-right">
+                   <h5><label> التحمل على</label></h5> 
+                </div>
+              </div>
+              <div class="row" dir="rtl" >
+                  <div class="form-group col-md-3 text-right">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <label class="custom-control-label" for="defaultInline1">الهيكل المعني</label>
+                        <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample" dir="ltr">
+                      </div>
+                    </div>
+                    <div class="form-group col-md-3 text-right">
+
+                      <div class="custom-control custom-radio custom-control-inline">
+                          <label class="custom-control-label" for="defaultInline2">الهيكل المضبف</label>
+
+                        <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
+                      </div>
+                    </div>
+                      <!-- Default inline 3-->
+                      <div class="form-group col-md-3 text-right">
+
+                      <div class="custom-control custom-radio custom-control-inline">
+                          <label class="custom-control-label" for="defaultInline3">مشروع</label>
+
+                        <input type="radio" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample" (change)="toggleRadio($event)">
+                      </div>
+                   
+                  </div>
+
+                  <div class="form-group col-md-3 text-right">
+                      <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="defaultChecked2"  (change)="toggleEditable($event)" >
+                          <label class="custom-control-label" for="defaultChecked2">استثناء</label>
+                        </div>
+                      </div>
+            </div>
+            <div *ngIf="radioProjet==true">
+                <div class="row" dir="rtl">
+                    <div class="form-group col-md-4 text-right">
+                        <select class="form-control" formControlName="codPrj" >
+                            <option *ngFor="let projet of projets" [ngValue]="projet.codPrj">{{projet.libprjA}}</option>
+                          </select>
+    </div>
+                </div>
+              </div>  
+
+  <div *ngIf="op==true">
+            <div class="row" dir='rtl'>
+                <div class="form-group col-md-4 text-right">
+                    <div class="list-group radio-list-group">
+                     
+                          <div class="list-group-item list-group-item-info">&nbsp;<label><input type="radio" name="ra" value="1"><span class="list-group-item-text">على الحساب الخاص</span></label></div>
+                    
+                          <div class="list-group-item list-group-item-info"><label>&nbsp;<input type="radio" name="ra" value="2"><span class="list-group-item-text">تحمل مشترك بين الهيكل المعني و الاجنبي</span></label></div>
+                     
+                          <div class="list-group-item list-group-item-info"><label>&nbsp;<input type="radio" name="ra" value="3"><span class="list-group-item-text"> عدم الحط من المنحة بداية من 21 يوم</span></label></div>
+                     
+                          <div class="list-group-item list-group-item-info"><label>&nbsp;<input type="radio" name="ra" value="4"  ><span class="list-group-item-text"> مشروع</span></label></div>                
+                        </div>     
+              </div>
+            </div>
+            </div>
+   
+  <!--       <div class="row" dir='rtl'>
+                <div class="form-group col-md-12 text-right">
+                    <div id="table" class="table-editable">
+                        <table class="table table-bordered table-responsive-md table-striped text-center">
+                          <tr>             
+                              <th class="text-center">نوعية المصاريف </th>
+                            <th class="text-center"> المبلغ</th>
+                            <th class="text-center">التحمل</th>
+                          </tr>
+                          <tr *ngFor="let type of typeFrais">
+                            <td class="pt-3-half" contenteditable="false" >{{type.libFrais}}</td>
+                            <td class="pt-3-half" contenteditable="true"></td>
+                            <td class="pt-3-half" contenteditable="true">
+                                <select class="form-control" >
+                                    <option  *ngFor="let s of supportes">{{s}}</option>
+                                  </select>
+                            </td>
+                          </tr>
+                         
+                         
+                        </table>
+                      </div>
+
+</div>
+            </div>-->  
+            <div class="row" dir="rtl">
+
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>نوعية المصاريف </th>
+                            <th>المبلغ</th>
+                            <th>التحمل</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let field of fieldArray; let i = index">
+                            <td>
+                                <select class="form-control" name="{{field.name}}" >
+                                    <option  *ngFor="let s of supportes">{{s}}</option>
+                                  </select>
+                                <!--<input  class="form-control" type="text" name="{{field.code}}" />-->
+                            </td>
+                            <td>
+                                <input class="form-control" type="text" name="{{field.name}}" />
+                            </td>
+                            <td>
+                                <input  class="form-control" type="text" name="{{field.price}}" />
+                            </td>
+                            <td>
+                                <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="form-control" type="text" id="newAttributeCode"  name="newAttributeCode" />
+                            </td>
+                            <td>
+                                <input class="form-control" type="text" id="newAttributeName"  name="newAttributeName" />
+                            </td>
+                            <td>
+                                <input class="form-control" type="text" id="newAttributePrice"  name="newAttributePrice" />
+                            </td>
+                            <td>
+                                <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                  </table>
+            </div>
+          
+            <div>
+              <button class="btn btn-success" (click)="add()">إدخال</button>
+
+            </div>
+            </form>
+        </div>
+
+
+      </div>
+
+
+</app-card>

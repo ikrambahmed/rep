@@ -1,0 +1,49 @@
+
+      <app-card  [title]="'المنتفعيين قائمة'" [classHeader]="true" [blockClass]="'table-border-style'">
+
+    <!-- <div class="row">
+        <div class="col-lg-12">
+
+          <nav class=" navbar navbar-light " style="background-color: #33b5e5;">-->
+      
+      <div  dir="rtl">
+
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ب.ت </th>
+              <th>المعرف الوحيد </th>
+              <th>الاسم</th>
+              <th>اللقب</th>
+              <th>الجنسية</th>
+              <th>
+                <button class="btn btn-outline-primary" (click)="operation ='ADD' ;initMiss() ;">اظافة</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let missionnaire of missionnaires ">
+              <td>{{missionnaire.cin}} </td>
+              <td>{{missionnaire.matricule}}</td>
+              <td>{{missionnaire.prenom}}</td>
+              <td>{{missionnaire.nom}} </td>
+              <td>{{missionnaire.nationalite}} </td>
+              <td>
+                <button class="btn btn-outline-primary"
+                  (click)="editOp() ;  selectedMissionnaire = missionnaire">تغيير</button>
+                <button class="btn btn-outline-danger"
+                  (click)="removeOp() ; selectedMissionnaire = missionnaire">حذف</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+    <!--</div>
+
+      </div>-->
+     <div>
+      <app-missionnaire [operation]="operation" [selectedMissionnaire]="selectedMissionnaire"></app-missionnaire>
+    </div>
+    </app-card>
+

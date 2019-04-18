@@ -1,0 +1,77 @@
+<app-card  [title]="'إضافة '" [classHeader]="true" [blockClass]="'table-border-style'">
+<div class="container"  >
+
+    <div class="card">
+        <div class="card-body ">
+            <h5 class="mb-0 text-center"> <span class="badge badge-secondary">{{y}}</span>
+            </h5>
+          <form [formGroup]="BudgetProjForm" >
+            <div class="row" dir="rtl" lang="ar">
+                <div class="form-group col-md-6 text-right" >
+                    <label >المشروع </label>
+                    <select class="form-control" formControlName="codPrj" >
+                        <option *ngFor="let projet of projets" [ngValue]="projet.codPrj">{{projet.libprjA}}</option>
+                      </select>    
+                    </div>
+                    <input type="text" formControlName="code" [(ngModel)]="codeDept" hidden>
+                    <input type="date" formControlName="dateBproj" [(ngModel)]="dateSys" hidden>
+
+                </div>
+<div class="row">
+    <div class="form-group col-md-6 text-right">
+        <label >المرجع </label>
+        <input type="text" class="form-control" formControlName="reference"> 
+    </div>
+    <div class="form-group col-md-6 text-right">
+        <label > اعتمادات النقل </label>
+        <input type="text" class="form-control" formControlName="valeur">
+    </div>
+
+</div>
+</form>
+<div class="row " dir="rtl" lang="ar">
+  <div class="col-md-12  text-right">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>اعتمادات المامورية </th>
+            <th>المرجع</th>
+            <th>تاريخ المصادقة</th>
+            <th>
+              <button class="btn btn-outline-primary" (click)="operation ='ADD' ;initMiss() ;">اظافة</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let budget of budgets">
+            <td>{{budget.valeur}}</td>
+            <td>{{budget.reference}}</td>
+            <td>{{budget.dateBproj}}</td>
+            <td>
+              <button class="btn btn-outline-primary"
+                (click)="editOp() ;  selectedMissionnaire = missionnaire">تغيير</button>
+              <button class="btn btn-outline-danger"
+                (click)="removeOp() ; selectedMissionnaire = missionnaire">حذف</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+<div class="row">
+<div class="col-md-6  text-right">
+<label> مجموع </label>
+<label> مجموع الاعتمادات المرصودة </label>
+</div>
+</div>
+<div>
+    <button class="btn btn-success" (click)="add()">
+      إدخال  
+    </button>
+
+</div>
+</div>
+</div>
+</div>
+</app-card>
+

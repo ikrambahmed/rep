@@ -1,0 +1,60 @@
+<section class="login p-fixed d-flex text-center" style="background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/EPzzjHhuxijr01n5f/4k-traveling-by-airplane-at-sunset-view-from-airplane-window_4dovfi6dl__F0000.png'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+  <div class="auth-fluid" style="width:30%" >
+    <div class="row">
+      <div class="col-sm-12">
+      
+       
+          <form class="md-float-material " [formGroup]="loginForm" (submit)="login()" #f="ngForm">
+            <div class="text-center">
+              <h4>منظومة الماموريات  بالخارج</h4>
+            </div>
+            <div class="auth-box"  style=" background-color: rgba(126,123,215,0.2) ">
+              <div class="row m-b-20">
+                <div class="col-md-12">
+                  <h3 class="text-center txt-primary">تسجيل الدخول</h3>
+                </div>
+              </div>
+              <hr/>
+              <div class="input-group">
+                <input type="text" class="form-control text-right" placeholder="بطاقة التعريف الوطنية" formControlName="username"
+                [(ngModel)]="credentials.username"
+                pattern="[0-9]{8}"  required maxlength="8" >
+                
+                <span class="md-line"></span>
+              </div>
+              <div class="input-group">
+                <input type="password" class="form-control text-right" placeholder="كلمة العبور" formControlName="password"
+                [(ngModel)]="credentials.password">
+                <span class="md-line"></span>
+              </div>
+              <div class="row m-t-25 text-left">
+                <div class="col-sm-7 col-xs-12">
+                  <div class="checkbox-fade fade-in-primary">
+                  
+                  </div>
+                </div>
+                <div class="col-sm-12 col-xs-12 forgot-phone text-center">
+                  <a [routerLink]="['/authentication/forgot']" class="text-center f-w-600 text-inverse"> تغيير كلمة العبور</a>
+                </div>
+              </div>
+              <div class="row m-t-30">
+                <div class="col-md-12">
+                  <button type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" type="submit"  [disabled]="f.invalid" >الدخول</button>
+                </div>
+              </div>
+              <hr/>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <p class="text-inverse  m-b-0">منظومة الماموريات  بالخارج</p>
+                  <p class="text-inverse "><b>المركز الوطني للاعلامية  </b></p>
+                </div>
+              
+              </div>
+            </div>
+          </form>
+        
+      </div>
+    
+    </div>
+  </div>
+</section>

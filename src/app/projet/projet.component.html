@@ -1,0 +1,36 @@
+<app-card  [title]="'اضافة مشروع'" [classHeader]="true" [blockClass]="'table-border-style'">
+<div class="container" >  
+        <div class="card-body ">
+
+          <form [formGroup]="PojetForm" #f="ngForm">
+            <div class="row" dir="rtl">
+              <div class="form-group col-md-6 text-right">
+                <label>السنة</label>
+                <h4><span class="label label-default">{{year}}</span></h4>
+              </div>
+            </div>
+            <div class="row" dir="rtl">
+              <div class="form-group col-md-6 text-right">
+                <label>المشروع رقم</label>
+                <input type="textbox" class="form-control" formControlName="codPrj" [(ngModel)]="codeProjet">
+              </div>
+            </div>
+              <div class="row">
+              <div class="form-group col-md-6 text-right">
+                <label>المشروع</label>
+                <input type="textbox" class="form-control" formControlName="libprjA">
+              </div>
+              <div class="form-group col-md-6 text-right">
+                <label>Projet</label>
+                <input type="textbox" class="form-control" formControlName="libPrjL">
+                <input type="textbox" class="form-control" formControlName="code" [(ngModel)]="cod" hidden>
+              </div>
+            </div>
+            <div>
+              <button class="btn btn-success" (click)="add()">إدخال</button>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+</app-card>
