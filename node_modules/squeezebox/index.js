@@ -16,7 +16,7 @@ var sb_item_1 = require("./components/sb-item");
 var sb_item_head_1 = require("./components/sb-item-head");
 var sb_item_body_1 = require("./components/sb-item-body");
 exports.SQUEEZEBOX_COMPONENTS = [squeezebox_1.SqueezeBox, sb_item_1.SBItem, sb_item_head_1.SBItemHead, sb_item_body_1.SBItemBody];
-var SqueezeBoxModule = (function () {
+var SqueezeBoxModule = /** @class */ (function () {
     function SqueezeBoxModule() {
     }
     SqueezeBoxModule = __decorate([

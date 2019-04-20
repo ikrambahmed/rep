@@ -20,7 +20,6 @@ export class AllMissionComponent implements OnInit {
   totalRec : number;
   page: number = 1;
   listData : MatTableDataSource<any> ; 
-  readonly url = 'http://localhost:8080/api/mission/listmission'
   constructor(private missionService : MissionService , 
     private http : HttpClient , 
     private router : Router) { }

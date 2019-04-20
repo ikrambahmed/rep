@@ -29,4 +29,13 @@ export class SqueezeBox {
         }
     }
 
+    /**
+     * Refreshes and recalculates expanded items
+     */
+    refresh() {
+        this.items.toArray().forEach(function(i) { 
+            i.refreshBody();
+        });
+    }
+
 }

@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var sb_item_1 = require("./sb-item");
-var SBItemHead = (function () {
+var SBItemHead = /** @class */ (function () {
     function SBItemHead(sbItem) {
         this.sbItem = sbItem;
     }

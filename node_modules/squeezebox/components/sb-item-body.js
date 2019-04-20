@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var SBItemBody = (function () {
+var SBItemBody = /** @class */ (function () {
     function SBItemBody(renderer) {
         this.renderer = renderer;
     }
